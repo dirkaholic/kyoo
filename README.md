@@ -1,6 +1,6 @@
 # kyoo: A Go library providing an unlimited job queue and concurrent worker pools
 
-![Build](https://gitlab.com/dirkaholic/kyoo/badges/master/pipeline.svg) ![Coverage](https://gitlab.com/dirkaholic/kyoo/badges/master/coverage.svg)
+![Build](https://gitlab.com/dirkaholic/kyoo/badges/master/pipeline.svg) ![Coverage](https://gitlab.com/dirkaholic/kyoo/badges/master/coverage.svg) [![Go Report Card](https://goreportcard.com/badge/github.com/dirkaholic/kyoo)](https://goreportcard.com/report/github.com/dirkaholic/kyoo)
 
 ## About
 
