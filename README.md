@@ -24,7 +24,7 @@ Possible use cases for the library are:
 
 ## Example
 
-The following example shows a simple http server offloading jobs the jobqueue that is constantly
+The following example shows a simple http server offloading jobs to the jobqueue that is constantly
 processed in the background.
 
 ```go
