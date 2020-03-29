@@ -1,21 +1,20 @@
 {
-    "Version": "2012-10-17",
-    "Id": "allow-sns-sending-message-to-sqs",
-    "Statement": [
-      {
-        "Sid": "dev-images-sqs-sid",
-        "Effect": "Allow",
-        "Principal": {
-          "AWS": "*"
-        },
-        "Action": "SQS:SendMessage",
-        "Resource": "arn:aws:sqs:us-east-1:000000000000:kyoo-images-queue",
-        "Condition": {
-          "ArnEquals": {
-            "aws:SourceArn": "arn:aws:sns:us-east-1:000000000000:kyoo-images-topic"
-          }
+  "Version": "2012-10-17",
+  "Id": "allow-sns-sending-message-to-sqs",
+  "Statement": [
+    {
+      "Sid": "dev-images-sqs-sid",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "*"
+      },
+      "Action": "SQS:SendMessage",
+      "Resource": "arn:aws:sqs:us-east-1:000000000000:kyoo-images-queue",
+      "Condition": {
+        "ArnEquals": {
+          "aws:SourceArn": "arn:aws:sns:us-east-1:000000000000:kyoo-images-topic"
         }
       }
-    ]
-  }
-  
+    }
+  ]
+}
