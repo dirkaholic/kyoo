@@ -98,4 +98,6 @@ The output on http server side should be similar like this
 2020-01-09 21:36:40.734289 +0100 CET m=+10.311628415 - processed /test/10 !!
 ```
 
-See more examples in the [examples section](examples/)
+## More examples
+
+* [SQS worker](examples/sqsworker)

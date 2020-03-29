@@ -1,2 +1,3 @@
 coverage.out
 examples/httpserver/httpserver
+examples/sqsworker/sqsworker

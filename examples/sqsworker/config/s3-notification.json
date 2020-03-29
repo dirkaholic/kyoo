@@ -1,0 +1,10 @@
+{
+    "TopicConfigurations": [
+      {
+        "Id": "s3-upload-notification-to-sns",
+        "TopicArn": "arn:aws:sns:us-east-1:000000000000:kyoo-images-topic",
+        "Events": ["s3:ObjectCreated:*"]
+      }
+    ]
+  }
+  

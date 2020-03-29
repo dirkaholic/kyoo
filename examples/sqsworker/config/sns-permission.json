@@ -1,0 +1,21 @@
+{
+    "Version": "2012-10-17",
+    "Id": "allow-s3-publishing-to-sns",
+    "Statement": [
+      {
+        "Sid": "dev-images-s3-sid",
+        "Effect": "Allow",
+        "Principal": {
+          "AWS": "*"
+        },
+        "Action": "SNS:Publish",
+        "Resource": "arn:aws:sns:us-east-1:000000000000:kyoo-images-topic",
+        "Condition": {
+          "ArnEquals": {
+            "aws:SourceArn": "arn:aws:s3:::local-kyoo-bucket"
+          }
+        }
+      }
+    ]
+  }
+  
