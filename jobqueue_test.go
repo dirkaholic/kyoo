@@ -20,6 +20,39 @@ type JobQueueSuite struct{}
 
 var _ = Suite(&JobQueueSuite{})
 
+func (s *JobQueueSuite) TestStoppedBeforeStart(c *C) {
+	queue := jobqueue.NewJobQueue(1)
+	c.Assert(queue.Stopped(), Equals, false)
+}
+
+func (s *JobQueueSuite) TestStoppedDuringStartAndStop(c *C) {
+	queue := jobqueue.NewJobQueue(1)
+	reading := make(chan struct{})
+	done := make(chan struct{})
+	readerStopped := make(chan struct{})
+
+	go func() {
+		defer close(readerStopped)
+		queue.Stopped()
+		close(reading)
+		for {
+			select {
+			case <-done:
+				return
+			default:
+				queue.Stopped()
+			}
+		}
+	}()
+
+	<-reading
+	queue.Start()
+	queue.Stop()
+	close(done)
+	<-readerStopped
+	c.Assert(queue.Stopped(), Equals, true)
+}
+
 func (s *JobQueueSuite) TestJobQueueStartsAndStopsSuccesfully(c *C) {
 	queue := jobqueue.NewJobQueue(runtime.NumCPU())
 	queue.Start()

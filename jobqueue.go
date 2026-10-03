@@ -31,6 +31,7 @@ func NewJobQueue(maxWorkers int) *JobQueue {
 		dispatcherStopped: &sync.WaitGroup{},
 		workersStopped:    workersStopped,
 		quit:              make(chan bool),
+		stoppedMutex:      &sync.Mutex{},
 	}
 }
 
@@ -41,7 +42,6 @@ func (q *JobQueue) Start() {
 	}
 	go q.dispatch()
 
-	q.stoppedMutex = &sync.Mutex{}
 	q.setStopped(false)
 }
 
